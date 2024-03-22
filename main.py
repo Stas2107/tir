@@ -2,8 +2,10 @@ import pygame
 import random
 import tkinter as tk
 
+#-----------------------------------------------------------
 def get_interval():
     time_interval = time_var.get()
+    root.quit()
     return int(time_interval)  # convert string to integer
 
 root = tk.Tk()
@@ -20,7 +22,9 @@ time_entry.pack()
 button = tk.Button(root, text='Начать игру', command=get_interval)
 button.pack()
 
+
 root.mainloop()  # this should block
+#-----------------------------------------------------------
 
 pygame.init()
 
@@ -40,6 +44,7 @@ target_x = random.randint(0, SCREEN_WIDTH - target_width)
 target_y = random.randint(0, SCREEN_HEIGHT - target_height)
 color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
 
+#----------------------------------------------------------------------
 time_interval = get_interval() * 1000  # Преобразование в миллисекунды
 
 hits = 0
@@ -48,6 +53,7 @@ font = pygame.font.Font(None, 36)
 
 clock = pygame.time.Clock()
 last_time = pygame.time.get_ticks()
+#---------------------------------------------------------------------
 
 running = True
 while running:
